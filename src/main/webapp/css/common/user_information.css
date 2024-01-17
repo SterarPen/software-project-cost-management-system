@@ -1,0 +1,124 @@
+body {
+	background-color: #EEEEEEEE;
+}
+#background_information {
+	width: 60%;
+	height: 75%;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	border-radius: 8px;
+	text-align: center;
+}
+
+#information_table {
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	border-radius: 8px;
+	font-size: large;
+}
+
+#background_information button {
+	width: 150px;
+	height: 40px;
+
+	border: 1px solid #EEEEEEEE;
+	border-radius: 5px;
+	background-color: rgb(38, 120, 255);
+	color: white;
+}
+
+#background_information button:hover {
+	background-color: #FFFFFF;
+	color: red;
+}
+
+#information_table span {
+	display: inline-block;
+	text-align: right;
+	width: 15%;
+}
+#information_table input {
+	font-size: large;
+
+}
+
+#mask {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(238, 238, 238, 0.4);
+	z-index: 2;
+}
+.dialog {
+	width: 360px;
+	height: 360px;
+	position: fixed;
+	display: none;
+	z-index: 3;
+	background-color: #FFFFFF;
+
+	left: 50%;
+	transform: translateX(-50%);
+	border: 2px solid #FFFFFF;
+	border-radius: 10px;
+}
+.dialog .title {
+	height: 30px;
+	background-color: #4e73df;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	border-radius: 10px;
+}
+
+.dialog div form  {
+	text-align: center;
+
+}
+
+.dialog div form .get {
+	/* display: block; */
+	margin-top: 2%;
+	width: 80%;
+	height: 30px;
+}
+.dialog div form .get:hover {
+	color: red;
+}
+.dialog div form input {
+	margin-top: 3px;
+	width: 80%;
+	height: 20px;
+}
+
+.dialog div form .confirm,.cancel {
+	width: 90px;
+	height: 30px;
+	background-color: #4e73df;
+	border: 0px;
+	color: white;
+	position: absolute;
+	bottom: 5%;
+	border-radius: 3px;
+}
+
+.dialog div form .confirm:hover,.cancel:hover {
+	color: red;
+}
+
+.dialog div form .confirm {
+	left: 5%;
+}
+
+
+.dialog div form .cancel {
+	right: 5%;
+}

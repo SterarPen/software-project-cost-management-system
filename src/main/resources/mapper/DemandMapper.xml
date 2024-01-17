@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IDemandDao">
+
+    <select id="selectDemandById" parameterType="string" resultType="Demand">
+        select
+            demand_id ,demand_content, create_time, status, project_id
+        from
+            project_manage_system.demand
+        where
+            demand_id = #{demandId}
+    </select>
+
+    <select id="selectConditionalDemand" resultType="Demand">
+        select
+            demand_id, demand_content, create_time, status
+        from
+            project_manage_system.demand
+        <where>
+            project_id = #{projectId}
+            <if test="demandId != null and demandId != ''">
+                and demand_id= #{demandId}
+            </if>
+            <if test="day1 != null and day1 != ''">
+                <choose>
+                    <when test="day1 == 1000">
+                        and DATE_SUB(CURDATE(), INTERVAL 365 DAY) >= create_time
+                    </when>
+                    <otherwise>
+                         and create_time BETWEEN DATE_SUB(CURDATE(), INTERVAL #{day1} DAY)  AND NOW()
+                    </otherwise>
+                </choose>
+            </if>
+            <if test="status1 != null and status1 != ''">
+                and status= #{status1}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectDemandByProjectId" parameterType="string" resultType="Demand">
+        select
+            demand_id, demand_content, create_time, status
+        from
+            project_manage_system.demand
+        where
+            project_id = #{projectId}
+    </select>
+
+    <insert id="insertDemand" parameterType="Demand">
+        insert into
+            project_manage_system.demand
+            (project_id, demand_content, create_time, status)
+        values
+            (#{projectId}, #{demandContent}, NOW(), 0)
+    </insert>
+
+    <update id="updateDemand" parameterType="Demand">
+        update
+            project_manage_system.demand
+        <set>
+            <if test="demandContent != null and demandContent != ''">
+                demand_content = #{demandContent},
+            </if>
+            <if test="status != null">
+<!--             and status in (0,1,2, 3, -1, '0','1','2','3','-1')-->
+                status = #{status}
+            </if>
+        </set>
+        where
+            demand_id = #{demandId}
+    </update>
+</mapper>

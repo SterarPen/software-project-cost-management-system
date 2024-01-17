@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IAdminDao">
+
+    <select id="queryAdminById" parameterType="string" resultType="Admin">
+        select
+            admin_id, admin_name, password, update_time, old_password
+        from
+            project_manage_system.admin
+        where
+            admin_id = #{adminId} and expire = 1
+    </select>
+
+    <update id="updateAdmin" parameterType="Admin">
+        update
+            project_manage_system.admin
+        <set>
+            <if test="adminName != null and adminName != ''"> admin_name = #{adminName}, </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+                old_password=#{oldPassword},
+                update_time = NOW()
+            </if>
+        </set>
+        where
+            admin_id = #{adminId}
+    </update>
+
+    <insert id="addAdmin" parameterType="Admin" useGeneratedKeys="true" keyProperty="adminId">
+        insert into
+            project_manage_system.admin(admin_name, password, update_time, old_password, expire)
+        values
+            (#{adminName}, #{password}, NOW(), #{password}, 1)
+    </insert>
+
+    <delete id="deleteAdmin" parameterType="string">
+        delete from
+            project_manage_system.admin
+        where
+            admin_id = #{adminId}
+    </delete>
+</mapper>

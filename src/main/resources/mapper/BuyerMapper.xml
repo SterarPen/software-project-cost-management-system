@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IBuyerDao">
+
+    <select id="queryBuyer" resultType="Buyer">
+        select id,name,password,phone, email, create_time, handling_project from project_manage_system.buyer
+        <where>
+            expire = 1
+            <if test="id!=null and id!=''">
+                and id=#{id}
+            </if>
+            <if test="phone!=null and phone!=''">
+                and phone=#{phone}
+            </if>
+            <if test="email!=null and email!=''">
+                and email=#{email}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateBuyer" parameterType="Buyer">
+        update
+            project_manage_system.buyer
+        <set>
+            <if test="name != null and name != ''">name=#{name},</if>
+            <if test="password != null and password != ''">password=#{password},</if>
+            <if test="phone != null and phone != ''">phone=#{phone},</if>
+            <if test="email != null and email != ''">email=#{email} </if>
+        </set>
+        where
+            id=#{id} and expire = 1
+    </update>
+
+    <insert id="addBuyer" parameterType="Buyer" useGeneratedKeys="true" keyProperty="id">
+        insert into
+            project_manage_system.buyer(name,password,phone,email,create_by,create_time, handling_project)
+        values
+            (#{name},#{password},#{phone},#{email},#{createBy},NOW(), #{handlingProject})
+    </insert>
+
+    <update id="deleteBuyer">
+        update project_manage_system.buyer
+        set destroy_time = NOW(), expire = 0
+        where id = ${id}
+    </update>
+</mapper>

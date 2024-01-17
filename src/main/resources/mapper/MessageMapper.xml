@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IMessageDao">
+
+    <select id="selectMessageById" resultType="Message">
+        select
+            message_id, message_type, message_platform, message_content,
+            send_time, finish_time, valid_time_interval, sender, receiver, time_unit, expire, role
+        from
+            project_manage_system.message
+        where
+             message_id = #{messageId}
+    </select>
+
+    <select id="selectAllMessageByRole" resultType="Message">
+        select
+            message_id, message_type, message_platform, message_content,
+            send_time, finish_time, valid_time_interval, sender, receiver, time_unit, expire, role
+        from
+            project_manage_system.message
+        where
+            role = #{role}
+            <if test="expire != null and expire != ''">
+                and expire = #{expire}
+            </if>
+    </select>
+
+    <select id="selectAllMessageByReceiver" resultType="Message">
+        select
+            message_id, message_type, message_platform, message_content, send_time, finish_time, valid_time_interval, sender, receiver, time_unit, expire, role
+        from
+            project_manage_system.message
+        where
+            receiver = #{receiver}
+            <if test="expire != null and expire != ''">
+                and expire = #{expire}
+            </if>
+    </select>
+
+    <insert id="insertMessage" parameterType="Message" useGeneratedKeys="true" keyProperty="messageId">
+        insert into
+            project_manage_system.message(message_type, message_platform,
+                                          message_content, send_time,
+                                          finish_time, valid_time_interval,
+                                          sender, receiver,
+                                          time_unit, role)
+            value
+            (#{messageType}, #{messagePlatform},
+             #{messageContent}, #{sendTime},
+             #{finishTime}, #{validTimeInterval},
+             #{sender}, #{receiver},
+             #{timeUnit}, #{role})
+    </insert>
+
+    <update id="updateMessage" parameterType="Message">
+        update
+            project_manage_system.message
+        set
+           expire = #{expire}
+        where
+            message_id = #{messageId}
+    </update>
+
+    <delete id="deleteMessage" parameterType="int">
+        delete from
+            project_manage_system.message
+        where
+            message_id = #{messageId}
+    </delete>
+</mapper>

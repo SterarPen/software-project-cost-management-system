@@ -1,0 +1,46 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: pengxiong
+  Date: 2023/11/26
+  Time: 18:49
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#role').change(function () {
+                $('#login_form').prop('action', '/login/' + $('#role').val());
+            });
+        });
+    </script>
+</head>
+<body>
+<form id="login_form" action="/login/buyer" method="post">
+    <select name="loginType">
+        <option value="phone">手机号</option>
+        <option value="email">邮箱</option>
+        <option value="id">账号id</option>
+    </select>
+    <input type="text" name="account"/>
+    <label for="pwd">密码：</label>
+    <input id="pwd" type="password" name="password"/>
+    <select id="role" name="role">
+        <option value="buyer">购买方</option>
+        <option value="projectMgr">项目经理</option>
+        <!--            <option value="productMgr">产品经理</option>-->
+        <!--            <option value="programDeveloper">程序开发者</option>-->
+        <!--            <option value="test">测试人员</option>-->
+        <!--            <option value="run">运维人员</option>-->
+        <option value="manager">系统管理员</option>
+    </select>
+    <input type="submit"/>
+</form>
+</body>
+</html>

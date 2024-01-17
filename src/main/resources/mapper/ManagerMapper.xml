@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IManagerDao">
+
+    <select id="queryManager" resultType="Manager">
+        select
+            manager_id, manager_name, password, phone, email, create_time, handling_project
+        from
+            project_manage_system.manager
+        where
+            expire = 1
+            <if test="managerId!=null and managerId != ''">
+                and manager_id=#{managerId}
+            </if>
+            <if test="phone!=null and phone != ''">
+                and phone=#{phone}
+            </if>
+            <if test="email!=null and email != ''">
+                and email=#{email}
+            </if>
+    </select>
+
+    <update id="updateManager" parameterType="Manager">
+        update
+            project_manage_system.manager
+        <set>
+            <if test="managerName != null and managerName != ''"> manager_name = #{managerName}, </if>
+            <if test="password != null and password != ''"> password = #{password}, </if>
+            <if test="phone != null and phone != ''"> phone=#{phone}, </if>
+            <if test="email != null and  email != ''"> email=#{email} </if>
+        </set>
+        where
+            manager_id = #{managerId}
+    </update>
+
+    <insert id="addManager" parameterType="Manager" useGeneratedKeys="true" keyProperty="managerId">
+        insert into
+            project_manage_system.manager
+            ( manager_name, password, phone, email, create_by, create_time, handling_project )
+        values
+            ( #{managerName}, #{password}, #{phone}, #{email}, #{createBy}, NOW(), #{handlingProject})
+    </insert>
+
+    <update id="deleteManager">
+        update
+            project_manage_system.manager
+        set
+            expire = '0'
+        where
+            manager_id=#{managerId}
+    </update>
+</mapper>

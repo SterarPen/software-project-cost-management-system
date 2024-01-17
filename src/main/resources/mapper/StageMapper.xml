@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IStageDao">
+    <select id="selectStageById" parameterType="string" resultType="Stage">
+        select
+            stage_id, stage_name, start_time, cost_time, predict_cost
+        from
+            project_manage_system.stage
+        where
+            stage_id = #{stageId}
+    </select>
+
+    <select id="selectAllStageByProjectId" parameterType="string" resultType="Stage">
+        select
+            stage_id, stage_name, start_time, cost_time, predict_cost
+        from
+            project_manage_system.stage
+        where
+            project_id = #{projectId}
+    </select>
+
+    <insert id="insertStage">
+        insert into
+        project_manage_system.stage
+            (stage_name, project_id, start_time, cost_time, predict_cost)
+        value
+            (#{stage.stageName}, #{projectId}, #{stage.startTime}, #{stage.costTime},
+             #{stage.predictCost})
+    </insert>
+
+    <delete id="deleteStage">
+        delete from project_manage_system.stage where stage_id = #{stageId}
+    </delete>
+
+    <update id="updateStage">
+        update
+            project_manage_system.stage
+        <set>
+            <if test="stage.stageName != null and stage.stageName != ''">
+                stage_name = #{stage.stageName},
+            </if>
+            <if test="stage.startTime != null">
+                start_time = #{stage.startTime},
+            </if>
+            <if test="stage.costTime != null">
+                cost_time = #{stage.costTime},
+            </if>
+            <if test="stage.predictCost != null">
+                predict_cost = #{stage.predictCost}
+            </if>
+        </set>
+        where
+            stage_id = #{stage.stageId} and project_id = #{projectId}
+    </update>
+</mapper>

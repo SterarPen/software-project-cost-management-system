@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.ITaskDao">
+    <select id="selectTaskById" parameterType="string" resultType="Task">
+        select
+            task_id, stage_id, task_content, status, cost, start_time, end_time
+        from
+            project_manage_system.task
+        where
+            task_id = #{taskId}
+    </select>
+
+    <select id="selectTaskByStageId" parameterType="string" resultType="Task">
+        select
+            task_id, stage_id, task_content, status, cost, start_time, end_time
+        from
+            project_manage_system.task
+        where
+            stage_id = #{stageId}
+    </select>
+
+    <select id="selectTaskByProjectId" parameterType="string" resultType="Task">
+        select
+            task_id, stage_id, task_content, status, cost, start_time, end_time
+        from
+            project_manage_system.task
+        where
+            project_id = #{projectId}
+    </select>
+
+    <select id="selectTaskByCondition" resultType="Task">
+        select
+            task_id, stage_id, task_content, status, cost, start_time, end_time
+        from
+            project_manage_system.task
+        where
+            project_id = #{projectId}
+            <if test="taskId != null and taskId != ''">
+                and task_id = #{taskId}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="stageId != null and stageId != ''">
+                and stage_id = #{stageId}
+            </if>
+    </select>
+
+    <insert id="insertTask">
+        insert into
+            project_manage_system.task
+            (stage_id, task_content, project_id, start_time, end_time, status, cost)
+            value
+            (#{task.stageId}, #{task.taskContent}, #{projectId}, #{task.startTime}, #{task.endTime}, 0, #{task.cost})
+    </insert>
+
+    <delete id="deleteTask">
+        delete from project_manage_system.task where task_id = #{taskId}
+    </delete>
+
+    <update id="updateTask">
+        update
+            project_manage_system.task
+        <set>
+            <if test="task.taskContent != null and task.taskContent != ''">
+                task_content = #{task.taskContent},
+            </if>
+            <if test="task.status != null and task.status != ''">
+                status = #{task.status},
+            </if>
+            <if test="task.cost != null and task.cost != ''">
+                cost = #{task.cost},
+            </if>
+            <if test="task.startTime != null">
+                start_time = #{task.startTime},
+            </if>
+            <if test="task.endTime != null">
+                end_time = #{task.endTime}
+            </if>
+        </set>
+        where
+            task_id = #{task.taskId}
+    </update>
+</mapper>

@@ -1,0 +1,132 @@
+html,body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+}
+
+.bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15vw;
+	height: 100%;
+}
+
+.bar .loge {
+	width: 100%;
+	height: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.loge img {
+	width: 4vw;
+	height: 4vw;
+}
+
+.bar .bar_items {
+	width: 100%;
+	height: 80%;
+	background-color: #FFFFFF;
+}
+
+.bar_items ul {
+	width: 80%;
+	height: 100%;
+
+	margin: 0px;
+	padding-left: 20%;
+}
+
+.bar_items li {
+	position: relative;
+	height: 8vh;
+}
+
+.bar_items li img {
+	width: 12%;
+	margin-right: 10%;
+}
+
+
+.bar_items .selector_minitor {
+	width: 3px;
+	height: 15vh;
+	max-height: 40px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+
+	border-radius: 3px;
+}
+
+.bar_items a {
+	display: flex;
+	width: 70%;
+	height: 30vh;
+	max-height: 40px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	align-items: center;
+	justify-content: center;
+
+	text-decoration: none;
+}
+
+
+.right {
+	position: absolute;
+	top: 0px;
+	left: 15vw;
+
+	width: 85vw;
+	height: 100vh;
+}
+.top {
+	position: relative;;
+	width: 100%;
+	height: 8%;
+	margin: 0px;
+	/* max-height: 50px; */
+	background-color: #4e73df;
+}
+
+.top #title {
+	margin-left: 3%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: white;
+}
+.top .top_right {
+	width: 20%;
+	height: 100%;
+	max-width: 150px;
+	float: right;
+	margin-right: 3%;
+	display: flex;
+	align-items: center;
+	justify-content:end;
+}
+
+.top_right #user_name {
+	margin-left: 5%;
+	color: white;
+}
+.top_right #login_out {
+	margin-left: 1%;
+}
+
+.content {
+	width: 100%;
+	height: 91%;
+	border: 0px;
+	margin: 1px 0 0 0;
+
+	background-color: #EEEEEE;
+}
+

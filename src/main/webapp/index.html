@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>软件工程项目成本控制管理系统</title>
+        <link rel="stylesheet" href="/css/index.css"/>
+        <script src="/js/index.js"></script>
+    </head>
+    <body>
+        <div class="box">
+            <img class="pic" src="img/2.webp"/>
+            <label class="title">软件工程项目成本控制管理系统</label>
+            <form action="/login" method="post">
+                <select name="loginType" class="class_login_type">
+                  <option value="phone">手机号</option>
+                  <option value="email">邮箱</option>
+                  <option value="id">账号id</option>
+                </select>
+                <input class="zh1" type="text" name="account"/>
+                <label class="mima" for="id_pwd_value">密码</label>
+                <input id="id_pwd_value" class="mima1" type="password" name="password"/>
+                <select class="role" name="role">
+                  <option value="buyer">购买方</option>
+                  <option value="projectMgr">项目经理</option>
+                  <option value="manager">系统管理员</option>
+                </select>
+                <input class="sub" type="submit" value="登录"/>
+            </form>
+        </div>
+    </body>
+</html>

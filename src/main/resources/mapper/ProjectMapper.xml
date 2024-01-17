@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.starer.dao.IProjectDao">
+
+    <select id="queryProjectById" parameterType="string" resultType="Project">
+        select
+            project_id, project_name, buyer_id, create_time, finish_time, developer_manager_id
+        from
+            project_manage_system.project
+        where
+            project_id = #{projectId}
+    </select>
+
+    <select id="queryProjectsByBuyerId" resultType="Project">
+        select
+            project_id, project_name, buyer_id, create_time, finish_time, developer_manager_id
+        from
+            project_manage_system.project
+        where
+            buyer_id = #{buyerId}
+    </select>
+
+    <select id="queryProjectsByDeveloperManagerId" parameterType="string" resultType="Project">
+        select
+            project_id, project_name, buyer_id, create_time, finish_time, developer_manager_id
+        from
+            project_manage_system.project
+        where
+            developer_manager_id = #{developerManagerId}
+    </select>
+
+    <select id="queryProjectsIdByBuyerId" parameterType="string" resultType="string">
+        select
+            project_id
+        from
+            project_manage_system.project
+        where
+            buyer_id = #{buyerId}
+    </select>
+
+    <select id="queryProjectsIdByDeveloperManagerId" parameterType="string" resultType="string">
+        select
+            project_id
+        from
+            project_manage_system.project
+        where
+            developer_manager_id = #{developerManagerId}
+    </select>
+
+    <insert id="insertProject" parameterType="Project" useGeneratedKeys="true" keyProperty="projectId">
+        insert into
+            project_manage_system.project(project_name, buyer_id, create_time, developer_manager_id)
+        value
+            (#{projectName}, #{buyerId}, NOW(), #{developerManagerId})
+    </insert>
+
+    <delete id="deleteProject" parameterType="string">
+        delete from
+            project_manage_system.project
+        where
+            project_id = #{projectId}
+    </delete>
+
+    <select id="selectProjects" resultType="Project">
+        select
+            project_id, project_name, buyer_id, create_time, finish_time, developer_manager_id
+        from
+            project_manage_system.project
+        <where>
+            <if test="buyerId != null and buyerId != ''">
+                buyer_id = #{buyerId}
+            </if>
+            <if test="developerManagerId != null and developerManagerId != ''">
+                developer_manager_id = #{developerManagerId}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

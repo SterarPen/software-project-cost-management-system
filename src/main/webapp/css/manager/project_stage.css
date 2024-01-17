@@ -1,0 +1,270 @@
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #EEEEEE;
+}
+body {
+    height: 98vh;
+    margin: 5px 1vw 5px 1vw;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    border-radius: 5px;
+}
+
+.top {
+    position: relative;
+    width: 100%;
+    height: 9vh;
+    max-height: 42px;
+}
+
+.top .left {
+    width: 30%;
+    height: 100%;
+    float: left;
+    padding-left: 0.5%;
+    display: flex;
+    align-items: center;
+}
+
+.top .right {
+    width: 69%;
+    height: 100%;
+    float: right;
+    padding-right: 0.5%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.left button {
+    width:31%;
+    height: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 3%;
+    max-width: 100px;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.right * {
+    height: 80%;
+    margin-left: 1.5%;
+}
+
+.right input {
+    width: 35%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    max-width: 365px;
+    background-color: #EEEEEE;
+}
+
+.right button {
+    width: 15%;
+    max-width: 100px;
+}
+
+.right select {
+    width: 10%;
+    max-width: 130px;
+}
+
+
+.table {
+    position: relative;
+    width: calc(98vw - 4px);
+    margin: 5px 2px 5px 2px;
+    border-top: 1px solid #999999;
+    text-align: center;
+}
+
+
+.table th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: large;
+    font-weight:500;
+    color: #000000;
+    padding: 10px 10px 10px 10px;
+}
+
+.table td {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #4a4545;
+    padding: 10px 10px 10px 10px;
+}
+
+.table .one {
+    width: 15%;
+    max-width: 200px;
+}
+.table .two {
+    width: 40%;
+    max-width: calc((98vw - 4px)*0.4);
+}
+.table .three {
+    width: 15%;
+    max-width: 150px;
+}
+.table .four {
+    width: 10%;
+    max-width: 100px;
+}
+.table .five {
+    width: 10%;
+    max-width: 100px;
+}
+.table .six {
+    width: 10%;
+    max-width: 100px;
+}
+
+.mask {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #999999;
+    opacity: 0.3;
+    /* visibility:hidden;
+    z-index: 1; */
+}
+
+
+.dialog {
+    display: none;
+
+    width: 55vw;
+    height: calc(55vw*0.89);
+    background-color: #EEEEEE;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 430px;
+    max-height: 380px;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+
+    text-align: center;
+
+    /* visibility: hidden; */
+    /* z-index: 2; */
+
+}
+
+/* .top .table {
+	z-index: 3;
+} */
+
+.dialog .dialog_title {
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #999999;
+    background-color: #4e73df;
+    border-radius: 5px;
+    height: 7%;
+}
+
+
+#create_requirement #req_type{
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    height: 25px;
+    max-height: 25px;
+}
+#create_requirement #text_req{
+    display: block;
+    margin: 0 auto;
+    width: 78%;
+    height: calc(55vw*0.89*0.5);
+    max-height: 235px;
+
+    font-size: large;
+    font-weight: 500;
+}
+.dialog .confirm, .cancel {
+    width: 25%;
+    height: 30px;
+    position: absolute;
+    bottom: 20px;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #777777;
+
+    background-color: #FFFFFF;
+
+    font-weight:600;
+
+    color: #777777;
+}
+.dialog .confirm:hover, .cancel:hover {
+    color: rgb(225, 70, 70);
+    background-color: rgb(215, 237, 250);
+}
+.dialog .confirm{
+    left: 20px;
+}
+.dialog .cancel{
+    right: 20px;
+}
+
+.dialog .query_demand {
+    width: 80%;
+    height: 25px;
+    margin: 10px auto 10px auto;
+}
+.query_demand input {
+    width: calc(80% - 10px);
+    height: 25px;
+    border: 0px;
+    float: left;
+}
+.query_demand button {
+    width: 20%;
+    height: 28px;
+    float: right;
+}
+
+.dialog .text_req {
+    display: block;
+    margin: 0 auto;
+    width: 78%;
+    height: calc(55vw*0.89*0.5);
+    max-height: 235px;
+}
+
+textarea {
+    font-size: large;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+

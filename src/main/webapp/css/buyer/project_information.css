@@ -1,0 +1,55 @@
+table {
+	width: 100%;
+	/* text-align: center; */
+	border-spacing: 5px;
+}
+.card1,.card2,.card3 {
+	display: inline-block;
+	background-color: orange;
+	width: 290px;
+	height: 102px;
+	border-radius: .35rem;
+}
+
+#project_name,#project_name_value {
+	font-size: 24px;
+	font-family: DM Sans;
+	font-weight: bold;
+	/* --font-family-sans-serif: "Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; */
+}
+
+#project_name_table {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+li span {
+	font-size: 16px;
+	font-weight: medium;
+}
+ul {
+	color: #00fff0;
+}
+li {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+li span {
+	color: black;
+}
+
+#main_information,#project_manager_information {
+	position: static;
+	background-color: white;
+}
+
+table td {
+	padding-bottom: 10px;
+}
+
+#project_manager {
+	position: relative;
+	font-size: 18px;
+	font-weight: medium;
+	top: -40px;
+	left: 120px;
+}
