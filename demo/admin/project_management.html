@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/project_management.css"/>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/js/project_management.js"></script>
+</head>
+<body>
+<div id="thread">
+    <button class="new_requirement">添加项目</button>
+    <button id="delete_project">删除项目</button>
+    <input type="text" placeholder="请输入查询内容" style="margin-left: 500px"/>
+    <button>搜索</button>
+</div>
+<div class="reqiurement">
+    <table id="table_req" style="top: 70px;">
+        <thread>
+            <tr style="position: sticky; top: -1px;">
+                <th id="th_id" style="width: 60px;">ID</th>
+                <th id="th_content" style="width: 280px;">项目名</th>
+                <th id="th_create_time" style="width: 130px;">创建时间</th>
+                <th id="th_status" style="width: 130px;">(预计)完成时间</th>
+                <th id="th_type" style="width: 100px;">购买方</th>
+                <th id="th_operate" style="width: 100px;">项目经理</th>
+            </tr>
+        </thread>
+    </table>
+</div>
+
+<div id="mask"></div>
+
+<div class="dialog" id="create_requirement">
+    <div>添加项目</div>
+    <div>
+        <form>
+            <select id="req_type">
+                <option value="file">文件</option>
+                <option value="text">文本</option>
+            </select>
+            <textarea id="text_req"></textarea>
+            <input id="select_file" type="file" value="选择文件"/>
+            <button class="confirm">确认</button>
+            <button class="cancel">取消</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

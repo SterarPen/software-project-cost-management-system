@@ -1,0 +1,157 @@
+html {
+	height: 0;
+}
+
+.bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 258px;
+	height: 1024px;
+	background-color: white;
+}
+
+.bar .loge {
+	user-select: none;
+	position: relative;
+	width: 258px;
+	height: 100px;
+	text-align: center;
+	padding-top: 25px;
+	padding-right: 5px;
+}
+
+.bar .loge img {
+	/* list-style-type: none; */
+	width: 85px;
+	height: 85px;
+}
+
+.bar_ul {
+	color: rgb(107, 114, 128);
+	font-family: DM Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 26.67px;
+	letter-spacing: -2%;
+	text-align: left;
+	/* padding-left: 50px; */
+}
+
+.bar_ul li {
+	position: relative;
+	background-position: 30px 6px;
+	background-size: 15.25px;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+	margin-bottom: 25.33px;
+	/* background-color: antiquewhite; */
+	
+}
+
+.bar_ul a:link {
+	text-decoration: none;
+	color: rgb(107, 114, 128);
+	font-family: DM Sans;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 26.67px;
+	letter-spacing: -2%;
+	text-align: left;
+}
+/* .bar_ul a:visited {
+	color: rgb(0, 0, 0);
+	font-weight: 700;
+} */
+.bar_ul a:hover {
+	color: red;
+}
+
+.selector_minitor {
+	position: absolute;
+	top: -3px;
+	right: 0;
+	width: 3px;
+	height: 33px;
+	border-radius: 60px;
+	/* background-color: rgb(251, 199, 86); */
+}
+
+.bar_ul #first {
+	background-image: url("../img/wallet (Stroke).png");
+}
+.bar_ul #second {
+	background-image: url("../img/home.png");
+}
+.bar_ul #third {
+	background-image: url("../img/plate (Stroke).png");
+}
+.bar_ul #fourth {
+	background-image: url("../img/bet.png");
+}
+.bar_ul #fifth {
+	background-image: url("../img/users.png");
+}
+
+/* 顶部的CSS */
+.top {
+	position: fixed;
+	top: 0;
+	left: 258px;
+	width: 1182px;
+	height: 60px;
+	/* background-color: rgb(248, 248, 248); */
+	background-color: #4e73df;
+	border-bottom: 1px solid #cacaca;
+	text-align: right;
+}
+
+.top #title {
+	position: absolute;
+	top: 18px;
+	left: 20px;
+	color: white;
+}
+.top #information {
+	position: relative;
+	right: 100px;
+	top: 19px;
+	width: 20px;
+	height: 20px;
+}
+.top #login_out {
+	position: relative;
+	right: 95px;
+	top: 19px;
+	width: 20px;
+	height: 20px;
+}
+/* .top #avatar {
+	position: relative;
+	right: 15px;
+	top: 5px;
+} */
+.top #user_name {
+	position: relative;
+	right: 90px;
+	top: 15px;
+	color: white;
+}
+
+
+/* 内容部分的CSS */
+.content {
+	position: fixed;
+	top: 60px;
+	left: 258px;
+	width: 1182px;
+	height: 964px;
+	background-color: rgb(248, 248, 248);
+	border-top: 1px solid #cacaca;
+}
+
+iframe {
+	width: 1182px;
+	height: 940px;
+	border: none;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/project_reqiurement.css"/>
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/project_requirement.js"></script>
+	</head>
+	<body>
+		<div class="tar">
+			<button class="new_requirement">创建需求</button>
+			<input type="text" placeholder="请输入查询内容"/>
+			<select>
+				<option>全部</option>
+				<option>今天</option>
+				<option>近三天</option>
+				<option>近五天</option>
+				<option>近一周</option>
+				<option>近两周</option>
+				<option>近一个月</option>
+				<option>近三个月</option>
+				<option>半年内</option>
+				<option>一年内</option>
+				<option>一年以外</option>
+			</select>
+			<select>
+				<option>全部</option>
+				<option>
+					未通过
+				</option>
+				<option>
+					已通过
+				</option>
+			</select>
+			<select>
+				<option>全部</option>
+				<option>类型</option>
+			</select>
+			<button>搜索</button>
+		</div>
+		<div class="reqiurement">
+			<div id="project_name">项目名</div>
+			<!-- <thread id="table_head" style="position: sticky; top: 10px;height: 40px; width: 95%"> -->
+				<!-- <span style="width: 60px; background-color: darkkhaki">ID</span>
+				<span style="width: 450px; background-color: aqua">内容</span>
+				<div style="width: 160px; background-color: blue">创建时间</div>
+				<div style="width: 80px; background-color: sandybrown">状态</div>
+				<div style="width: 70px; background-color: gold;">类型</div>
+				<div style="width: 30px; background-color: cadetblue">操作</div> -->
+				
+			<!-- </thread> -->
+			<table id="table_req" style="top: 70px;">
+				<thread>
+					<tr style="position: sticky; top: -1px;">
+						<th id="th_id" style="width: 60px;">ID</th>
+						<th id="th_content" style="width: 450px;">内容</th>
+						<th id="th_create_time" style="width: 160px;">创建时间</th>
+						<th id="th_status" style="width: 80px;">状态</th>
+						<th id="th_type" style="width: 70px;">类型</th>
+						<th id="th_operate" style="width: 30px;">操作</th>
+					</tr>
+				</thread>
+			</table>
+		</div>
+		
+		<div id="mask"></div>
+		
+		<div class="dialog" id="create_requirement">
+			<div>添加需求</div>
+			<div>
+				<form>
+					<select id="req_type">
+						<option value="file">文件</option>
+						<option value="text">文本</option>
+					</select>
+					<textarea id="text_req"></textarea>
+					<input id="select_file" type="file" value="选择文件"/>
+					<button class="confirm">确认</button>
+					<button class="cancel">取消</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
