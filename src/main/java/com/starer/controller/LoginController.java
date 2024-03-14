@@ -44,6 +44,7 @@ public class LoginController {
     @RequestMapping("/login")
     public String login(HttpServletRequest req, HttpServletResponse rsp, Model model) {
 
+
         String loginType = req.getParameter("loginType");
         String account = req.getParameter("account");
         String password = req.getParameter("password");

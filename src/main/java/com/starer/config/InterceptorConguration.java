@@ -5,6 +5,7 @@ import com.starer.service.IAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,7 +15,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Version: V1.0
  * @Description:
  **/
+@Configuration
 public class InterceptorConguration implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173") // 允许指定源
+                .allowedMethods("*") // 允许所有方法（GET, POST, PUT, DELETE, OPTIONS等）
+                .allowedHeaders("*") // 允许所有头
+                .allowCredentials(true); // 允许携带cookie
+    }
 
     private IAuthenticationService authenticationService;
 

@@ -8,8 +8,8 @@ $(document).ready(function() {
             const newRow = $('<tr>');
             newRow.append($('<td>').text(val.userId));
             newRow.append($('<td>').text(val.userName));
-            newRow.append($('<td>').text(val.email));
             newRow.append($('<td>').text(val.phone));
+            newRow.append($('<td>').text(val.email));
             newRow.append($('<td>').text(val.createTime));
             switch(val.role) {
                 case 1:
