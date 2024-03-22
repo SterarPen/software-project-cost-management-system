@@ -19,8 +19,8 @@ public class SendMessageUtil {
      * @return 验证码
      */
     public static Integer sendIdentifyCodeByEmail(String receiverEmail) {
-        final String username = "2482723192@qq.com";
-        final String password = "ppvngdwfcfygecdg";
+        final String username = "邮箱";
+        final String password = "授权码";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
