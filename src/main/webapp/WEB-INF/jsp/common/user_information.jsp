@@ -74,10 +74,10 @@
                 <div class="title">重置密码</div>
                 <div>
                     <form action="/update_password" method="post">
-                        <button class="get" onclick="sendPhoneMessage()">获取手机验证码</button>
+                        <button class="get" onclick="sendEmail()" type="button">获取邮箱验证码</button>
                         <input type="text" name="code"/>
                         <input type="text" placeholder="新密码" name="new_password"/>
-                        <input type="submit" id="pwd_update" value="确认" class="confirm"></input>
+                        <input type="submit" id="pwd_update" value="确认" class="confirm"/>
                         <button type="button" class="cancel">取消</button>
                     </form>
                </div>
@@ -91,7 +91,7 @@
                     <button type="button" class="get" onclick="sendPhoneMessage()">获取手机验证码</button>
                     <input type="text" name="code"/>
                     <input type="text" placeholder="新手机号" name="new_phone"/>
-                    <button class="confirm">确认</button>
+                    <button class="confirm" type="submit">确认</button>
                     <button type="button" class="cancel">取消</button>
                 </form>
 
@@ -101,7 +101,7 @@
             <div class="title">修改邮箱</div>
             <div>
                 <form action="/update_email" method="post">
-                    <button type="button" class="get" onclick="sendEmail()">获取邮箱验证码</button>
+                    <button type="button" class="get" onclick="sendEmail()" >获取邮箱验证码</button>
                     <input type="text" name="code"/>
                     <input type="text" placeholder="新邮箱" name="new_email"/>
                     <button class="confirm">确认</button>

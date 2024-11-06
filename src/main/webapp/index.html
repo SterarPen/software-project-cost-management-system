@@ -13,9 +13,9 @@
             <label class="title">软件工程项目成本控制管理系统</label>
             <form action="/login" method="post">
                 <select name="loginType" class="class_login_type">
+                  <option value="id">账号id</option>
                   <option value="phone">手机号</option>
                   <option value="email">邮箱</option>
-                  <option value="id">账号id</option>
                 </select>
                 <input class="zh1" type="text" name="account"/>
                 <label class="mima" for="id_pwd_value">密码</label>
@@ -26,6 +26,7 @@
                   <option value="manager">系统管理员</option>
                 </select>
                 <input class="sub" type="submit" value="登录"/>
+                <a href="/update.html" style="color: white">重置密码</a>
             </form>
         </div>
     </body>

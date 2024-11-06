@@ -68,7 +68,7 @@ function sendEmail() {
 }
 
 function sendPhoneMessage() {
-	fetch('/send_email')
+	fetch('/send_phone')
 		.then(response => response.json())
 		.then(data => {
 			// 在这里处理从服务器返回的数据

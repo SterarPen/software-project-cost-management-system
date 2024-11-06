@@ -18,7 +18,10 @@
 <!--        <property name="suffix" value=".jsp"/>-->
     </bean>
 
+
+
     <mvn:interceptors>
+
         <mvn:interceptor>
             <mvn:mapping path="/**"/>
             <mvn:exclude-mapping path="/login/**"/>

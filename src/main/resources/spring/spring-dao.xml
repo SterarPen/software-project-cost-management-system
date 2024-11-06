@@ -32,4 +32,5 @@
     <context:component-scan base-package="com.starer.dao"/>
     <context:component-scan base-package="com.starer.service"/>
     <context:component-scan base-package="com.starer.controller"/>
+    <context:component-scan base-package="com.starer.filter"/>
 </beans>

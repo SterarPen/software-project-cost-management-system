@@ -3,7 +3,6 @@ package com.starer.config;
 import com.starer.controller.interceptor.UserAuthenticationIdentifyInterceptor;
 import com.starer.service.IAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Description:
  **/
 @Configuration
-public class InterceptorConguration implements WebMvcConfigurer {
+public class InterceptorConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
@@ -27,19 +26,16 @@ public class InterceptorConguration implements WebMvcConfigurer {
                 .allowCredentials(true); // 允许携带cookie
     }
 
-    private IAuthenticationService authenticationService;
+    private final IAuthenticationService authenticationService;
 
-    public InterceptorConguration(IAuthenticationService authenticationService) {
+    @Autowired
+    public InterceptorConfiguration(IAuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
-    }
-
-    public UserAuthenticationIdentifyInterceptor loadLoginInterceptor() {
-        return new UserAuthenticationIdentifyInterceptor(authenticationService);
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loadLoginInterceptor())
+        registry.addInterceptor(new UserAuthenticationIdentifyInterceptor(authenticationService))
                 .excludePathPatterns("/login/*");
     }
 }

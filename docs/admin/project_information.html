@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>软件工程项目成本控制管理系统</title>
+		<link rel="stylesheet" type="text/css" href="./css/project_information.css"/>
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+		<script src="./js/project_information.js"></script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td colspan="3" id="project_name_table">
+					<span id="project_name">项目名称：</span>
+					<span id="project_name_value">在线商城系统</span>
+				</td>
+			</tr>
+			<tr id="project_main_information" style="height: 285px;">
+				<td id="main_information" style="width: 30%;">
+					<ul>
+						<li>
+							<span>项目经理：</span>
+							<span>项目经理测试员</span>
+						</li>
+						<li>
+							<div>
+								<span>项目创建时间：</span>
+								<span>2023-10-01</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>项目完成时间：</span>
+								<span>2024-12-29</span>
+							</div>
+						</li>
+					</ul>
+				</td>
+				<td style="position: relative;;popadding-bottom: 0; background-color: white;">
+					<div id="schedule" style="width: 800px; height: 260px; margin-top: 15px; margin-left: 20px">
+						
+					</div>
+					<script>
+					        var myChart1 = echarts.init(document.getElementById('schedule'));
+					        myChart1.showLoading();  // 开启 loading 效果
+					        $.get('json/cost.json', function (data) {
+								
+					            myChart1.setOption({
+					                title: {
+					                    text: '成本统计'
+					                },
+					                tooltip: {
+					                    text: '单位：元'
+					                },
+					                legend: {
+					                    data:['支出成本(元)']
+					                },
+					                xAxis: {
+					                    data: ["计划","需求分析","总体设计","详细设计","程序编码","软件测试","运行维护"]
+					                },
+					                yAxis: {
+					                    
+					                },
+					                series: [{
+					                    name: '支出成本(元)',
+					                    type: 'bar',
+					                    data: data.expense
+					                }]
+					            });
+					            myChart1.hideLoading();
+					        }, 'json');
+					    </script>
+						<!-- <div id="pie" style="width: 200px; height: 280px"></div>
+						<script>
+							// 基于准备好的dom，初始化echarts实例
+							        var myChart = echarts.init(document.getElementById('pie'));
+							 
+							        // 指定图表的配置项和数据
+							        var option = {
+							            series : [
+							                {
+							                    name: '成本统计',
+							                    type: 'pie',    // 设置图表类型为饼图
+							                    radius: '55%',  // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
+							                    data:[          // 数据数组，name 为数据项名称，value 为数据项值
+							                        {value:1000, name:'计划'},
+							                        {value:5000, name:'需求分析'},
+							                        {value:6000, name:'总体设计'},
+							                        {value:8000, name:'详细设计'},
+							                        {value:60000, name:'程序编码'},
+							                        {value:3000, name:'软件测试'},
+							                        {value:2000, name:'运行维护'}
+							                    ]
+							                }
+							            ]
+							        };
+							 
+							        // 使用刚指定的配置项和数据显示图表。
+							        myChart.setOption(option);
+						</script> -->
+				</td>
+			</tr>
+			<tr style="height: 286px;">
+				<td id="project_manager_information" style="width: 30%;">
+					<span id="project_manager">甲方</span>
+					<ul>
+						<li>
+							<div>
+								<span>姓名：</span>
+								<span>小二</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>手机号：</span>
+								<span>16111111111</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>邮箱：</span>
+								<span>16111111111@qq.com</span>
+							</div>
+						</li>
+					</ul>
+				</td>
+				<td style="position: relative;;popadding-bottom: 0; background-color: white;">
+					<div id="main" style="width: 800px; height: 260px; margin-top: 15px; margin-left: 20px"></div>
+					    <script>
+					        var myChart = echarts.init(document.getElementById('main'));
+							myChart.showLoading();  // 开启 loading 效果
+							$.get('json/schedule.json', function (data) {
+								
+								myChart.setOption({
+									title: {
+										text: '进度完成情况',
+									},
+									tooltip: {
+										trigger: 'axis',
+									},
+									legend: {
+										data: ['已完成任务数量', '未完成任务数量']
+									},
+									xAxis: {
+										data: ['计划','需求分析','总体设计','详细设计','程序编码','软件测试','运行维护']
+									},
+									yAxis: {
+									},
+									series: [
+										{
+											name: '已完成任务数量',
+											data: data.finish,
+											type: 'bar',
+											stack: 'x'
+										},
+										{
+											name: '未完成任务数量',
+											data: data.no_finish,
+											type: 'bar',
+											stack: 'x'
+										}
+									]
+								});
+								myChart.hideLoading();  // 隐藏 loading 效果
+							}, 'json');
+					    </script>
+				</td>
+			</tr>
+
+			<!-- <tr>
+				<td colspan="3">
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="card1">
+						<div>
+							<span>项目名称：</span>
+							<span>在线商城系统</span>
+						</div>
+						<div>
+							<span>购买方：</span>
+							<span>测试公司</span>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="card2">
+						<div>
+							<span>项目负责人：</span>
+							<span>小二</span>
+						</div>
+						<div>
+							<span>项目负责人联系方式：</span>
+							<span>16111111111</span>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="card3">
+						<div>
+							<span>项目创建时间：</span>
+							<span>2023/10/1</span>
+						</div>
+						<div>
+							<span>项目完成时间：</span>
+							<span>2024/2/1</span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<span>项目进度</span>
+						<table></table>
+					</div>	
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<div>
+						<span>项目成本</span>
+						<table></table>
+					</div>
+				</td>
+			</tr> -->
+		</table>
+
+
+
+
+
+	</body>
+</html>

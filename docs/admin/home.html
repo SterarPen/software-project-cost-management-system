@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>软件工程项目成本控制管理系统</title>
+    <link rel="stylesheet" type="text/css" href="./css/home.css"/>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="./js/home.js"></script>
+</head>
+<body>
+<div class="bar">
+    <div class="loge">
+        <img src="./img/loge.png"/>
+        <!-- <span>MTC</span> -->
+    </div>
+    <div class="bar_items">
+        <ul class="bar_ul">
+            <li id="first">
+                <a id="first_a" href="project_summary.html" target="content_part">项目汇总</a>
+                <div class="selector_minitor"></div>
+            </li>
+            <!-- style="list-style-image: url("img/plate (Stroke).png");" -->
+            <li id="second">
+                <a href="project_information.html" target="content_part">项目信息</a>
+                <div class="selector_minitor"></div>
+            </li>
+            <li id="third">
+                <a href="project_requirement.html" target="content_part">项目需求</a>
+                <div class="selector_minitor"></div>
+            </li>
+             <li id="fourth">
+                <a href="project_stage.html" target="content_part">阶段管理</a>
+                <div class="selector_minitor"></div>
+            </li>
+            <li id="sixth">
+                <a href="project_task.html" target="content_part">任务管理</a>
+                <div class="selector_minitor"></div>
+            </li>
+            <li id="fifth">
+                <a href="account_information.html" target="content_part">账号信息</a>
+                <div class="selector_minitor"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="top">
+    <span id="title">项目汇总</span>
+    <img id="information" src="img/Alert1.png"/>
+    <img id="login_out" src="img/Info1.png"/>
+    <!-- <img id="avatar" src="img/avatar.png"/> -->
+    <span id="user_name">Starer</span>
+</div>
+<div class="content">
+    <iframe name="content_part"></iframe>
+</div>
+</body>
+</html>

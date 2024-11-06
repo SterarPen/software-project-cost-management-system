@@ -108,7 +108,7 @@
         <span id="title">项目汇总</span>
         <div class="top_right">
 <%--            <img id="information" src="${pageContext.request.contextPath}/img/Alert1.png"/>--%>
-            <a href="/login_out" target="_top"><img id="login_out"src="${pageContext.request.contextPath}/img/Info1.png"/></a>
+            <a href="${pageContext.request.contextPath}/login_out" target="_top"><img id="login_out"src="${pageContext.request.contextPath}/img/Info1.png"/></a>
             <span id="user_name">${userDto.getUserName()}</span>
         </div>
     </div>

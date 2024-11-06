@@ -1,0 +1,47 @@
+table {
+	width: 99%;
+	height: 50px;
+	background-color: antiquewhite;
+	margin: 0 auto;
+}
+tr {
+	border-collapse: collapse;
+}
+
+td {
+	border-left: 3px solid #4e73df;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+td[id='last'] {
+	border-right: 3px solid #4e73df;
+}
+
+.pie_chart {
+	position: absolute;
+	left: 1%;
+	width: 385px;
+	height: 267px;
+	background-color: white;
+	padding-top: 15px;
+	padding-left: 5px;
+}
+
+#predict {
+	top: 65px;
+}
+#cost {
+	top: 356px;
+}
+
+#cost_analysis {
+	position: absolute;
+	top: 65px;
+	left: 34.5%;
+	width: 64%;
+	height: 560px;
+	background-color: white;
+	padding-top: 15px;
+	padding-left: 5px;
+}

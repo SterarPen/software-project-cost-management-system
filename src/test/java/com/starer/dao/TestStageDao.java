@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * @Author: pengxiong
@@ -38,7 +39,7 @@ public class TestStageDao extends TestCase {
 
     public void testInsertStage() {
         Stage stage = new Stage("10", "项目结束", new Date(System.currentTimeMillis()),
-                new Date(123, 3, 1), new BigDecimal("3021.12"));
+                Date.valueOf(LocalDate.of(2023, 4, 15)), new BigDecimal("3021.12"));
         boolean b = stageDao.insertStage(stage, "2");
         System.out.println(b);
     }

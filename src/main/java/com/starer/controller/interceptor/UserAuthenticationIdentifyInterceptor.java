@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 
 public class UserAuthenticationIdentifyInterceptor implements HandlerInterceptor {
 
-    private IAuthenticationService authenticationService;
+    private final IAuthenticationService authenticationService;
 
     @Autowired
     public UserAuthenticationIdentifyInterceptor(IAuthenticationService authenticationService) {
@@ -27,6 +27,11 @@ public class UserAuthenticationIdentifyInterceptor implements HandlerInterceptor
         String userId = null;
         String token = null;
         String role = null;
+
+        if (request.getRequestURI().equals("/send") ||
+            request.getRequestURI().equals("/update")) {
+            return true;
+        }
 
         Cookie[] cookies = request.getCookies();
         if(cookies == null) {

@@ -1,0 +1,145 @@
+body {
+    /* web 1280 */
+    position: relative;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.box {
+    /* PC/基础/矩形 */
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 35px;
+
+    background-color: rgba(255,255,255,0.6)
+}
+
+.pic {
+    /* PC/基础/图片 */
+    position: relative;
+    width: 300px;
+    height: 600px;
+    border-radius: 35px 0px 0px 35px;
+    user-select: none;
+}
+
+.title {
+    position: absolute;
+    /* 软件项目成本控制管理系统 */
+
+    width: 550px;
+    height: 52px;
+    left: 350px;
+    top: 80px;
+
+
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 52px;
+    letter-spacing: 0px;
+    text-align: left;
+
+}
+
+.class_login_type {
+	position: absolute;
+	width: 85px;
+	height: 32px;
+	left: 400px;
+	top: 192px;
+	background-color: rgba(255,255,255,0.6);
+
+	border: 1px solid #c2e9fb;
+	border-radius: 5px;
+	color: black;
+	font-family: 阿里巴巴普惠体;
+	font-size: 18px;
+	/* font-weight: 700; */
+	line-height: 22px;
+	letter-spacing: 0%;
+	text-align: left;
+}
+.class_login_type: {
+	font-weight: bold;
+}
+.zh1 {
+    /* input */
+position: absolute;
+width: 284px;
+height: 25px;
+left: 498px;
+top: 193px;
+border-radius: 5px;
+}
+
+.mima {
+    /* 账号： */
+position: absolute;
+width: 75px;
+height: 33px;
+left: 410px;
+top: 283px;
+
+
+color: rgba(8, 8, 10, 0.96);
+font-family: 阿里巴巴普惠体;
+font-size: 18px;
+line-height: 22px;
+letter-spacing: 1.125rem;
+text-align: left;
+}
+
+.mima1 {
+    /* input */
+position: absolute;
+width: 284px;
+height: 25px;
+left: 499px;
+top: 280px;
+border-radius: 5px;
+}
+
+.role {
+    /* 深色=off, 状态=悬停, 尺寸=中, 输入=off */
+position: absolute;
+width: 165px;
+height: 35px;
+left: 528px;
+top: 361px;
+box-sizing: border-box;
+text-align: center;
+
+
+/* light/fill/--el-fill-color-blank */
+background: rgb(255, 255, 255);
+/* light/border/--el-border-color-darker */
+border: 1px solid rgb(205, 208, 214);
+border-radius: 5px;
+
+}
+
+.sub {
+    /* 深色(Dark)=off, 样式(Style)=主要, 状态(State)=悬停, 圆角(Round)=off, 朴素(Plain)=off, 尺寸(Size)=中 */
+position: absolute;
+width: 300px;
+height: 50px;
+left: 454px;
+top: 436px;
+
+
+/* light/primary/--el-color-primary-light-3 */
+background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+border-radius: 15px;
+
+font-size: large;
+color: black;
+}
+
+.sub:hover {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    color: rgb(124, 122, 122);
+}
