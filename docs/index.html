@@ -22,7 +22,7 @@
             <input class="zh1" type="text" name="account"/>
             <label class="mima" for="id_pwd_value">密码</label>
             <input id="id_pwd_value" class="mima1" type="password" name="password"/>
-            <select class="role" name="role">
+            <select class="role" name="role" id="role_id">
                 <option value="buyer">购买方</option>
 				<option value="projectMgr">项目经理</option>
 				<!-- <option value="productMgr">产品经理</option>
@@ -31,12 +31,22 @@
 				<option value="run">运维人员</option> -->
 				<option value="manager">系统管理员</option>
             </select>
-            <input class="sub" type="submit" value="登录"/>
+            <input class="sub" type="button" value="登录" onclick="login()"/>
         </form>
 		<script>
-			function login() {
-				window.location.href = "/home.html";
+            function login() {
+                if (document.getElementById("role_id").options[document.getElementById("role_id").selectedIndex].value == "buyer") {
+                    window.location.href = "./home.html";
+                } else {
+                    window.location.href = "./admin/home.html";
+                }
+            }
+			function login1() {
+				window.location.href = "/doc/home.html";
 			}
+            function login2() {
+                window.location.href = "/admin/home.html";
+            }
 		</script>
     </div>
 </body>
